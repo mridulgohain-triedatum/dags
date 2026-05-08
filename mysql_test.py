@@ -2,10 +2,7 @@ from airflow import DAG
 from airflow import Dataset
 from airflow.operators.empty import EmptyOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
-from airflow.providers.ssh.operators.ssh import SSHOperator
-from airflow.sensors.external_task import ExternalTaskSensor
 from airflow.utils.task_group import TaskGroup
-from airflow.utils.template import literal
 from airflow.utils.trigger_rule import TriggerRule
 from datetime import datetime, timedelta
 import pendulum
