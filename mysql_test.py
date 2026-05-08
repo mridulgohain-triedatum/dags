@@ -52,6 +52,11 @@ with TaskGroup(
         parameters={'f_name': 'Mridul', 'l_name': 'Gohain', 'age': 133},
 
         dag=dag,
+        executor_config={
+            "KubernetesExecutor": {
+                "delete_worker_pod": False,
+            }
+        }
     )
 
     insert_into_table >> process_sp1

@@ -25,6 +25,11 @@ with DAG(
         log_events_on_failure=False,
         is_delete_operator_pod=False,  # auto delete pod (like TTL)
         do_xcom_push=False,
+        executor_config={
+            "KubernetesExecutor": {
+                "delete_worker_pod": False,
+            }
+        }
     )
 
     run_container
