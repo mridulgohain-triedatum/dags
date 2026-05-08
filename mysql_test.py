@@ -37,7 +37,7 @@ with TaskGroup(
     insert_into_table = SQLExecuteQueryOperator(
         task_id='insert_into_table',
         conn_id='mysql_localhost',
-        sql="insert into test values (4,'xyz')",
+        sql="insert into jil_test.test values (4,'xyz')",
         split_statements=True,
         return_last=False,
         dag=dag,
