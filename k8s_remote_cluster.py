@@ -10,7 +10,7 @@ with DAG(
     dag_id="k8s_remote_cluster",
     default_args=default_args,
     start_date=datetime(2024, 1, 1),
-    schedule_interval="*/5 * * * *",
+    schedule="*/5 * * * *",
     catchup=False,
 ) as dag:
 
