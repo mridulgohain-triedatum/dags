@@ -21,8 +21,10 @@ with DAG(
         image="mridulgohain/hello-python:v2",
         image_pull_policy="Always",
         kubernetes_conn_id="k8s_conn",
-        is_delete_operator_pod=True,  # auto delete pod (like TTL)
-        get_logs=True,
+        get_logs=False,
+        log_events_on_failure=False,
+        is_delete_operator_pod=False,  # auto delete pod (like TTL)
+        do_xcom_push=False,
     )
 
     run_container
