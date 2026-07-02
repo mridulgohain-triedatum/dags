@@ -18,7 +18,7 @@ default_args = {
 }
 
 dag = DAG(
-    'sql_query_op_test_mysql_23_10',
+    'mysql_test',
     default_args=default_args,
     description='Converted from Autosys JIL',
     schedule='10 1 * * *',
