@@ -1,7 +1,8 @@
 from datetime import datetime
 import time
 from airflow import DAG
-from airflow.operators.python import PythonOperator
+#from airflow.operators.python import PythonOperator
+from airflow.providers.standard.operators.python import PythonOperator
 from airflow.providers.common.sql.operators.sql import SQLExecuteQueryOperator
 
 def wait_10_seconds(task_name):
