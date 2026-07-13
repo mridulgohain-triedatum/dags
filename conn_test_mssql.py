@@ -1,0 +1,34 @@
+from datetime import datetime
+
+from airflow import DAG
+from airflow.providers.microsoft.mssql.operators.mssql import MsSqlOperator
+from airflow.operators.python import PythonOperator
+from datetime import datetime
+import time
+
+def wait_10_seconds(task_name):
+    print(f"Starting {task_name}")
+    time.sleep(10)
+    print(f"Finished {task_name}")
+with DAG(
+    dag_id="conn_test_mssql",
+    start_date=datetime(2026, 1, 1),
+    schedule=None,
+    catchup=False,
+    tags=["mssql"],
+) as dag:
+    py_task=PythonOperator(
+        task_id="task_1",
+        python_callable=wait_10_seconds,
+        op_args=["task_1"],
+    )
+
+    view_databases = MsSqlOperator(
+        task_id="view_databases",
+        mssql_conn_id="mssql_localhost",
+        sql="""
+            SELECT name FROM sys.databases;
+        """,
+    )
+
+    py_task >> view_databases
