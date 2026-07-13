@@ -8,7 +8,7 @@ def read_variable_callable():
 
 
 def update_variable_callable():
-    new_value = f"Updated via Airflow 3 Task SDK at {datetime.now().isoformat()}"
+    new_value = f"Updated_at_{datetime.now().isoformat()}"
 
     Variable.set(key="var_2", value=new_value)
     print(f"--- Successfully updated 'var_2' to: {new_value} ---")
