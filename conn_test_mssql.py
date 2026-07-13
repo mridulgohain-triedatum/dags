@@ -29,6 +29,7 @@ with DAG(
         sql="""
             SELECT name FROM sys.databases;
         """,
+        show_return_value_in_logs=True,
     )
 
     py_task >> view_databases
